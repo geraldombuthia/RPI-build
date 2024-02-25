@@ -26,7 +26,8 @@ function App() {
     },
   };
 
-  const { sensors1 } = dummySensorData;
+  const { sensors:sensors1 } = dummySensorData;
+
   useEffect(() => {
     const getData = async () => {
       const sensorsFromServer = await fetchSensors();
@@ -36,7 +37,7 @@ function App() {
   }, []);
 
   const fetchSensors = async () => {
-    const res = await fetch("http://192.168.8.198:8080/sensors")
+    const res = await fetch("http://localhost:8080/sensors");
     const data = await res.json();
     return data;
   }
