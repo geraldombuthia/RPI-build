@@ -21,21 +21,21 @@ def MPU_Init():
 	bus.write_byte_data(0x68, SMPLRT_DIV, 7)
 	
 	#Write to power management register
-	bus.write_byte_data(0x68, PWR_MGMT_1, 1)
+	bus.write_byte_data(Device_Address, PWR_MGMT_1, 1)
 	
 	#Write to Configuration register
-	bus.write_byte_data(0x68, CONFIG, 0)
+	bus.write_byte_data(Device_Address, CONFIG, 0)
 	
 	#Write to Gyro configuration register
-	bus.write_byte_data(0x68, GYRO_CONFIG, 24)
+	bus.write_byte_data(Device_Address, GYRO_CONFIG, 24)
 	
 	#Write to interrupt enable register
-	bus.write_byte_data(0x68, INT_ENABLE, 1)
+	bus.write_byte_data(Device_Address, INT_ENABLE, 1)
 
 def read_raw_data(addr):
 	#Accelero and Gyro value are 16-bit
-        high = bus.read_byte_data(0x68, addr)
-        low = bus.read_byte_data(0x68, addr+1)
+        high = bus.read_byte_data(Device_Address, addr)
+        low = bus.read_byte_data(Device_Address, addr+1)
     
         #concatenate higher and lower value
         value = ((high << 8) | low)
@@ -47,7 +47,7 @@ def read_raw_data(addr):
 
 
 bus = smbus.SMBus(1) 	# or bus = smbus.SMBus(0) for older version boards
-0x68 = 0x68   # MPU6050 device address
+Device_Address = 0x68   # MPU6050 device address
 
 MPU_Init()
 	
