@@ -4,8 +4,17 @@ This is the code to a test of the Edusat development with the aim of attempting 
 ## Installation
 ### Raspberry Pi OS
 
-### Turn on VNC
+### Configuration and setup
 `sudo raspi-config`
+
+Select Interface Options > SSH > select yes to enable > press okay to exit
+
+Select Interface Options > VNC > select yes to enable > press okay to exit
+
+Select Interface Options > SPI > select yes to enable > press okay to exit
+
+Select Interface Options > I2C > select yes to enable > press okay to exit
+
 
 ### Update
 `sudo apt update`
@@ -39,6 +48,7 @@ Confirm successful install using the following commands
 ### Install software
 git clone the source code from github as:
 `git clone https://github.com/geraldombuthia/RPI-build.git`
+
 
 ### Setup Application
 Enter the RPI-build directory and you will see two directories
